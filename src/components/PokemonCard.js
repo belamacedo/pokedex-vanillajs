@@ -26,7 +26,7 @@ export function PokemonCard(pokemon) {
 
   return `
     <div 
-      class="w-[203px] h-[285px] rounded-lg p-4 flex flex-col transition-transform hover:scale-105 cursor-pointer"
+      class="w-full px-4 pt-4 pb-14 rounded-lg flex flex-col transition-transform hover:scale-105 cursor-pointer"
       style="background: ${style.background}"
     >
       

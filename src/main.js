@@ -5,21 +5,30 @@ import './style.css'
 const app = document.querySelector('#app')
 
 app.innerHTML = `
-  ${NavBar()}
-  <div class="flex justify-center mt-8">
-    ${SearchBar()}
-  </div>
-  <div class="mt-8 px-6">
-    <div 
-      id="pokemon-list" 
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center transition-opacity duration-300"
-    ></div>
-  </div>
-  <div id="pagination-container" class="mt-10"></div>
+  <div id="navbar-container"></div>
+  
+  <main class="max-w-[1300px] mx-auto px-6 w-full flex flex-col items-center">
+    <div id="search-container" class="w-full flex justify-center mt-8"></div>
+
+    <div class="mt-8 w-full">
+      <div 
+        id="pokemon-list" 
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-y-10 gap-x-4 justify-items-center transition-opacity duration-300"
+      ></div>
+    </div>
+
+    <div id="pagination-container" class="mt-10 mb-10"></div>
+  </main>
 `
 
-const paginationElement = Pagination()
-document.getElementById('pagination-container').appendChild(paginationElement)
+document.getElementById('navbar-container').appendChild(NavBar())
+
+const searchContainer = document.getElementById('search-container')
+const paginationContainer = document.getElementById('pagination-container')
+
+searchContainer.appendChild(SearchBar())
+
+paginationContainer.appendChild(Pagination())
 
 function render(state) {
   const container = document.getElementById('pokemon-list')
@@ -36,7 +45,6 @@ function render(state) {
   }
 
   container.innerHTML = state.pokemons.map((p) => PokemonCard(p)).join('')
-
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 

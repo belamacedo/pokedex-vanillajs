@@ -8,6 +8,7 @@ const store = {
     total: 0,
     loading: false,
     error: null,
+    search: '',
   },
 
   listeners: [],
@@ -26,26 +27,26 @@ const store = {
     this.listeners.forEach((listener) => listener(this.state))
   },
 
+  async dispatchSearch(term) {
+    this.setState({ searchTerm: term, currentPage: 1, loading: true })
+    this.dispatchChangePage(1) // Reinicia na página 1 com o novo termo
+  },
+
   async dispatchChangePage(page) {
     this.setState({ loading: true })
+    const { limit, searchTerm } = this.state
+    const offset = (page - 1) * limit
 
     try {
-      const limit = this.state.limit
-      const offset = (page - 1) * limit
-
+      // Passamos o searchTerm para o service
       const { pokemons, total } = await pokemonService.fetchPokemons(
         limit,
-        offset
+        offset,
+        searchTerm
       )
-
-      this.setState({
-        pokemons,
-        total,
-        loading: false,
-        currentPage: page,
-      })
+      this.setState({ pokemons, total, currentPage: page, loading: false })
     } catch (error) {
-      this.setState({ error: 'Erro ao carregar', loading: false })
+      this.setState({ error: 'Erro ao buscar', loading: false })
     }
   },
 }
