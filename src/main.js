@@ -1,6 +1,11 @@
+import { NavBar, SearchBar } from './components'
 import './style.css'
-import { NavBar } from './components/NavBar.js'
 
-document.querySelector('#app').innerHTML = `
+const app = document.querySelector('#app')
+
+app.innerHTML = `
   ${NavBar()}
+  <div class="flex justify-center mt-8">
+    ${SearchBar()}
+  </div>
 `
