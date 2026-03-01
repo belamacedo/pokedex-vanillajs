@@ -1,25 +1,43 @@
 const GQL_URL = 'https://beta.pokeapi.co/graphql/v1beta'
 
 export const pokemonService = {
-  async fetchPokemons(limit = 18, offset = 0, name = '') {
+  async fetchPokemons(limit = 18, offset = 0, name = '', type = '') {
     const query = `
-    query getPokemons($limit: Int, $offset: Int, $name: String) {
-      pokemon: pokemon_v2_pokemon(
-        limit: $limit, 
-        offset: $offset, 
-        where: { name: { _ilike: $name } }
-      ) {
-        id
-        name
-        types: pokemon_v2_pokemontypes {
-          type: pokemon_v2_type { name }
+  query getPokemons(
+    $limit: Int, 
+    $offset: Int, 
+    $name: String,
+    $type: String
+  ) {
+    pokemon: pokemon_v2_pokemon(
+      limit: $limit,
+      offset: $offset,
+      where: {
+        name: { _ilike: $name }
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $type } }
         }
       }
-      info: pokemon_v2_pokemon_aggregate(where: { name: { _ilike: $name } }) {
-        aggregate { count }
+    ) {
+      id
+      name
+      types: pokemon_v2_pokemontypes {
+        type: pokemon_v2_type { name }
       }
     }
-  `
+
+    info: pokemon_v2_pokemon_aggregate(
+      where: {
+        name: { _ilike: $name }
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $type } }
+        }
+      }
+    ) {
+      aggregate { count }
+    }
+  }
+`
 
     try {
       const response = await fetch(GQL_URL, {
@@ -31,6 +49,7 @@ export const pokemonService = {
             limit,
             offset,
             name: `${name}%`,
+            type: type ? `%${type}%` : '%',
           },
         }),
       })

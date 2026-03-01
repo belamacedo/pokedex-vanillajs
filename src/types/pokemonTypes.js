@@ -1,0 +1,17 @@
+export const PokemonTypes = [
+  'grass',
+  'fire',
+  'water',
+  'electric',
+  'psychic',
+  'ice',
+  'ground',
+  'bug',
+  'poison',
+  'normal',
+  'fairy',
+  'fighting',
+  'rock',
+  'ghost',
+  'dragon',
+]

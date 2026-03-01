@@ -9,6 +9,7 @@ const store = {
     loading: false,
     error: null,
     searchTerm: '',
+    selectedType: '',
   },
 
   listeners: [],
@@ -32,16 +33,22 @@ const store = {
     this.dispatchChangePage(1)
   },
 
+  async dispatchFilterByType(type) {
+    this.setState({ selectedType: type, currentPage: 1, loading: true })
+    this.dispatchChangePage(1)
+  },
+
   async dispatchChangePage(page) {
     this.setState({ loading: true })
-    const { limit, searchTerm } = this.state
+    const { limit, searchTerm, selectedType } = this.state
     const offset = (page - 1) * limit
 
     try {
       const { pokemons, total } = await pokemonService.fetchPokemons(
         limit,
         offset,
-        searchTerm
+        searchTerm,
+        selectedType
       )
       this.setState({ pokemons, total, currentPage: page, loading: false })
     } catch (error) {

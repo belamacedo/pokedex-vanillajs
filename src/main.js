@@ -1,4 +1,10 @@
-import { NavBar, SearchBar, PokemonCard, Pagination } from './components'
+import {
+  NavBar,
+  SearchBar,
+  PokemonCard,
+  Pagination,
+  TypeFilter,
+} from './components'
 import { loadLocale } from './services'
 import store from './store'
 import './style.css'
@@ -13,7 +19,7 @@ app.innerHTML = `
     <div id="navbar-container"></div>
     
     <main class="max-w-[1300px] mx-auto px-6 w-full flex flex-col items-center">
-      <div id="search-container" class="w-full flex justify-center mt-8"></div>
+    <div id="search-container" class="w-full flex flex-col items-center mt-8 gap-4"></div>
 
       <div class="mt-8 w-full">
         <div 
@@ -32,6 +38,7 @@ const searchContainer = document.getElementById('search-container')
 const paginationContainer = document.getElementById('pagination-container')
 
 searchContainer.appendChild(SearchBar())
+searchContainer.appendChild(TypeFilter())
 paginationContainer.appendChild(Pagination())
 
 function render(state) {
