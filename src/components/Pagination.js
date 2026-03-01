@@ -6,19 +6,20 @@ const paginationStyles = {
   default:
     'bg-transparent text-poke-text-main hover:bg-poke-border cursor-pointer',
   navBtn:
-    'h-8 w-[109px] flex items-center justify-center gap-2 rounded-sm transition-all font-normal',
+    'h-8 px-3 sm:w-[109px] flex items-center justify-center gap-2 rounded-sm transition-all font-normal',
   numBtn:
-    'h-8 min-w-8 px-2 flex items-center justify-center rounded-sm transition-all',
+    'h-8 min-w-8 px-1.5 flex items-center justify-center rounded-sm transition-all',
   disabled:
     'opacity-50 cursor-not-allowed text-poke-muted hover:bg-transparent pointer-events-auto',
   ellipsis:
-    'h-8 w-8 flex items-center justify-center cursor-default text-poke-muted',
+    'h-8 w-6 sm:w-8 flex items-center justify-center cursor-default text-poke-muted',
 }
 
 export function Pagination() {
   const wrapper = document.createElement('div')
+
   wrapper.className =
-    'flex items-center justify-center gap-2 mt-10 mb-10 text-[14px]'
+    'flex items-center justify-center gap-1 sm:gap-2 mt-10 mb-10 text-[14px]'
 
   const render = () => {
     const { currentPage: curr, total, limit, loading } = store.state
@@ -71,16 +72,18 @@ export function Pagination() {
     wrapper.innerHTML = `
       <button data-action="prev" ${prevDisabled ? 'disabled' : ''} 
         class="${paginationStyles.navBtn} ${prevDisabled ? paginationStyles.disabled : 'text-poke-text-main hover:bg-poke-border cursor-pointer'}">
-        <i class="fa-solid fa-arrow-left"></i> ${t('previous')}
+        <i class="fa-solid fa-arrow-left"></i> 
+        <span class="hidden sm:inline">${t('previous')}</span> 
       </button>
 
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-0.5 sm:gap-1">
         ${pageButtonsHtml}
       </div>
 
       <button data-action="next" ${nextDisabled ? 'disabled' : ''} 
         class="${paginationStyles.navBtn} ${nextDisabled ? paginationStyles.disabled : 'text-poke-text-main hover:bg-poke-border cursor-pointer'}">
-        ${t('next')} <i class="fa-solid fa-arrow-right"></i>
+        <span class="hidden sm:inline">${t('next')}</span> 
+        <i class="fa-solid fa-arrow-right"></i>
       </button>
     `
   }
