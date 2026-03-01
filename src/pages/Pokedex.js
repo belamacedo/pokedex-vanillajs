@@ -10,6 +10,9 @@ import { pokemonService } from '@/services'
 import store from '@/store'
 
 export function Pokedex() {
+  store.dispatchSearch('')
+  store.dispatchFilterByType('')
+
   const container = document.createElement('div')
   container.className =
     'max-w-[1300px] mx-auto px-6 w-full flex flex-col items-center'
