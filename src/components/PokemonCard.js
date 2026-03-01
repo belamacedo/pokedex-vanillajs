@@ -16,6 +16,9 @@ export const typeStyles = {
   rock: { base: '#F7F5F0', emoji: '🪨' },
   ghost: { base: '#F4F0FF', emoji: '👻' },
   dragon: { base: '#F0F3FF', emoji: '🐉' },
+  flying: { base: '#F0F7FF', emoji: '🕊️' }, // Adicionado
+  steel: { base: '#F2F2F2', emoji: '⚙️' }, // Adicionado
+  dark: { base: '#ECEBED', emoji: '🌙' }, // Adicionado
 }
 
 export function PokemonCard(pokemon) {

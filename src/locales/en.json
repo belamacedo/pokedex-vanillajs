@@ -20,7 +20,10 @@
     "fighting": "Fighting",
     "rock": "Rock",
     "ghost": "Ghost",
-    "dragon": "Dragon"
+    "dragon": "Dragon",
+    "flying": "Flying",
+    "steel": "Steel",
+    "dark": "Dark"
   },
   "home_page": {
     "title": "Explore the Pokémon World",

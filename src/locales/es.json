@@ -20,7 +20,10 @@
     "fighting": "Luchador",
     "rock": "Roca",
     "ghost": "Fantasma",
-    "dragon": "Dragón"
+    "dragon": "Dragón",
+    "flying": "Volador",
+    "steel": "Acero",
+    "dark": "Siniestro"
   },
   "home_page": {
     "title": "Explora el Mundo Pokémon",

@@ -14,4 +14,7 @@ export const PokemonTypes = [
   'rock',
   'ghost',
   'dragon',
+  'flying',
+  'steel',
+  'dark',
 ]
