@@ -6,6 +6,8 @@
 
 Uma Pokédex moderna, rápida e responsiva construída puramente com **Vanilla JavaScript**, utilizando a [PokeAPI](https://pokeapi.co/) para listar e buscar informações de todos os seus monstros de bolso favoritos.
 
+[Live Demo](https://pokedex-vanillajs.vercel.app/)
+
 ---
 
 ## 📋 Pré-requisitos
@@ -24,7 +26,7 @@ Siga os passos abaixo para ter a Pokédex rodando localmente:
 1. **Clone o repositório:**
 
    ```bash
-   git clone [https://github.com/seu-usuario/pokedex-vanillajs.git](https://github.com/seu-usuario/pokedex-vanillajs.git)
+   git clone https://github.com/belamacedo/pokedex-vanillajs.git
 
    ```
 
