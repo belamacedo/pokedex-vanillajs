@@ -3,7 +3,7 @@ import { loadLocale } from './services'
 import store from './store'
 import './style.css'
 
-const browserLang = (navigator.language || 'pt').slice(0, 2)
+const browserLang = navigator.language.slice(0, 2)
 
 await loadLocale(browserLang)
 

@@ -1,18 +1,23 @@
-let currentLocale = 'pt'
-const translations = {}
+import pt from '../locales/pt.json'
+import en from '../locales/en.json'
+import es from '../locales/es.json'
 
-export async function loadLocale(locale) {
-  const res = await fetch(`/src/locales/${locale}.json`)
-  translations[locale] = await res.json()
-  currentLocale = locale
+const locales = { pt, en, es }
+let currentDictionary = pt
+
+export async function loadLocale(lang) {
+  currentDictionary = locales[lang] || locales['pt']
+  return currentDictionary
 }
 
-export function t(key) {
-  const keys = key.split('.')
-  let value = translations[currentLocale]
-  for (let k of keys) {
-    if (!value) return key
-    value = value[k]
+export function t(path) {
+  const keys = path.split('.')
+  let value = currentDictionary
+
+  for (const key of keys) {
+    value = value?.[key]
+    if (!value) return path
   }
-  return value || key
+
+  return value
 }
