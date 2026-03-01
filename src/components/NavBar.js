@@ -1,58 +1,66 @@
 import { t } from '../services'
-import store from '../store'
+
+const routes = [
+  { key: 'home', path: '#/home', label: () => t('home') },
+  { key: 'pokedex', path: '#/pokedex', label: () => t('pokedex') },
+]
 
 export function NavBar() {
   const wrapper = document.createElement('header')
   wrapper.className =
-    'w-full bg-[#FFFFFF] border-b border-[#D9D9D9] flex justify-center'
+    'w-full bg-white border-b border-gray-200 flex justify-center'
 
-  let activeTab = 'home'
+  wrapper.innerHTML = `
+    <nav class="w-full h-24 max-w-[1300px] px-6 flex items-center justify-between">
+      
+      <img 
+        src="/logo.png" 
+        alt="Logo Pokedex" 
+        class="h-10 object-contain cursor-pointer"
+        data-path="#/home"
+      />
 
-  const navStyles = {
-    base: 'p-2 rounded-lg text-base font-normal transition-all cursor-pointer outline-none',
-    active: 'bg-[#F5F5F5] text-[#1E1E1E]',
-    inactive: 'text-[#757575] hover:bg-[#F5F5F5] hover:text-[#1E1E1E]',
-  }
+      <div class="flex gap-3" id="nav-links"></div>
 
-  const render = () => {
-    wrapper.innerHTML = `
-      <nav class="w-full h-24 max-w-[1300px] px-6 flex items-center justify-between">
-        <img 
-          src="/logo.png" 
-          alt="Logo Pokedex" 
-          class="h-10 object-contain cursor-pointer"
-          data-tab="home"
-        />
+    </nav>
+  `
 
-        <div class="flex gap-3">
-          <button data-tab="home" class="${navStyles.base} ${activeTab === 'home' ? navStyles.active : navStyles.inactive}">
-            ${t('home')}
-          </button>
+  const linksContainer = wrapper.querySelector('#nav-links')
 
-          <button data-tab="pokedex" class="${navStyles.base} ${activeTab === 'pokedex' ? navStyles.active : navStyles.inactive}">
-            ${t('pokedex')}
-          </button>
-        </div>
-      </nav>
-    `
+  routes.forEach((route) => {
+    const button = document.createElement('button')
+
+    button.dataset.path = route.path
+    button.className =
+      'p-2 rounded-lg text-base transition-all cursor-pointer text-gray-500 hover:bg-gray-100 hover:text-gray-900'
+
+    button.textContent = route.label()
+
+    linksContainer.appendChild(button)
+  })
+
+  function updateActiveState() {
+    const current = window.location.hash || '#/home'
+
+    wrapper.querySelectorAll('[data-path]').forEach((el) => {
+      el.classList.remove('bg-gray-100', 'text-gray-900')
+
+      if (el.dataset.path === current) {
+        el.classList.add('bg-gray-100', 'text-gray-900')
+      }
+    })
   }
 
   wrapper.addEventListener('click', (e) => {
-    const target = e.target.closest('[data-tab]')
+    const target = e.target.closest('[data-path]')
     if (!target) return
 
-    const tab = target.dataset.tab
-    if (!tab) return
-
-    activeTab = tab
-
-    if (activeTab === 'home') {
-      store.dispatchSearch('')
-    }
-
-    render()
+    window.location.hash = target.dataset.path
   })
 
-  render()
+  window.addEventListener('hashchange', updateActiveState)
+
+  updateActiveState()
+
   return wrapper
 }

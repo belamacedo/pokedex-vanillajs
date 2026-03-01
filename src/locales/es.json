@@ -21,5 +21,10 @@
     "rock": "Roca",
     "ghost": "Fantasma",
     "dragon": "Dragón"
+  },
+  "home_page": {
+    "title": "Explora el Mundo Pokémon",
+    "description": "Descubre, filtra y explora tus Pokémon favoritos fácilmente.",
+    "button": "Explorar Pokédex"
   }
 }

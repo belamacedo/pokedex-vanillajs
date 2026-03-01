@@ -1,5 +1,5 @@
 {
-  "home": "Início",
+  "home": "Home",
   "pokedex": "Pokédex",
   "search_placeholder": "Faça uma busca pelo nome do pokémon",
   "loading_error": "Erro ao buscar Pokémon",
@@ -21,5 +21,10 @@
     "rock": "Pedra",
     "ghost": "Fantasma",
     "dragon": "Dragão"
+  },
+  "home_page": {
+    "title": "Explore o Mundo Pokémon",
+    "description": "Descubra, filtre e explore todos os Pokémon de forma simples e rápida.",
+    "button": "Explorar Pokédex"
   }
 }

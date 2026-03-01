@@ -21,5 +21,10 @@
     "rock": "Rock",
     "ghost": "Ghost",
     "dragon": "Dragon"
+  },
+  "home_page": {
+    "title": "Explore the Pokémon World",
+    "description": "Discover, filter and explore your favorite Pokémon easily.",
+    "button": "Explore Pokédex"
   }
 }
