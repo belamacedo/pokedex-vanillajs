@@ -1,4 +1,5 @@
 import { t } from '../services'
+import store from '../store'
 
 export function NavBar() {
   const wrapper = document.createElement('header')
@@ -36,14 +37,21 @@ export function NavBar() {
     `
   }
 
-  wrapper.onclick = (e) => {
+  wrapper.addEventListener('click', (e) => {
     const target = e.target.closest('[data-tab]')
     if (!target) return
 
-    activeTab = target.dataset.tab
-    if (activeTab === 'home') store.dispatchSearch('')
+    const tab = target.dataset.tab
+    if (!tab) return
+
+    activeTab = tab
+
+    if (activeTab === 'home') {
+      store.dispatchSearch('')
+    }
+
     render()
-  }
+  })
 
   render()
   return wrapper
