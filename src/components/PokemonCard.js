@@ -55,8 +55,7 @@ export function PokemonCard(pokemon) {
       class="w-full px-4 pt-4 pb-14 rounded-2xl flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-md cursor-pointer"
       style="background: ${mainStyle.base}"
     >
-      
-      <!-- Header -->
+
       <div class="flex justify-between items-start">
         <div class="flex gap-2 flex-wrap">
           ${typesHTML}
@@ -67,7 +66,6 @@ export function PokemonCard(pokemon) {
         </span>
       </div>
 
-      <!-- Image -->
       <div class="flex justify-center mt-6">
         <img 
           src="${pokemon.image}" 
@@ -77,7 +75,6 @@ export function PokemonCard(pokemon) {
         />
       </div>
 
-      <!-- Name -->
       <h2 class="text-center font-bold text-[14px] leading-[14px] capitalize mt-4 text-[#263156]">
         ${pokemon.name}
       </h2>
