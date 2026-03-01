@@ -1,7 +1,8 @@
 import js from '@eslint/js'
-import globals from 'globals'
-import prettierPlugin from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import prettierPlugin from 'eslint-plugin-prettier'
+import globals from 'globals'
 
 export default [
   js.configs.recommended,
@@ -9,10 +10,14 @@ export default [
     files: ['**/*.js'],
     languageOptions: {
       sourceType: 'module',
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     plugins: {
       prettier: prettierPlugin,
+      import: importPlugin,
     },
     rules: {
       'no-unused-vars': 'warn',
