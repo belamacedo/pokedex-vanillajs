@@ -65,7 +65,7 @@ export function PokemonCard(pokemon) {
           ${typesHTML}
         </div>
 
-        <span class="text-[#263156] font-bold text-sm">
+        <span class="text-poke-navy font-bold text-sm">
           #${pokemon.id.toString().padStart(3, '0')}
         </span>
       </div>
@@ -79,7 +79,7 @@ export function PokemonCard(pokemon) {
         />
       </div>
 
-      <h2 class="text-center font-bold text-[14px] leading-[14px] capitalize mt-4 text-[#263156]">
+      <h2 class="text-center font-bold text-[14px] leading-[14px] capitalize mt-4 text-poke-navy">
         ${pokemon.name}
       </h2>
 

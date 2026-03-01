@@ -1,14 +1,15 @@
-import store from '@/store'
 import { t } from '@/services'
+import store from '@/store'
 
 const paginationStyles = {
-  current: 'bg-[#2C2C2C] text-white cursor-default',
-  default: 'bg-transparent text-[#1E1E1E] hover:bg-gray-200 cursor-pointer',
+  current: 'bg-poke-dark text-white cursor-default',
+  default:
+    'bg-transparent text-poke-text-main hover:bg-poke-border cursor-pointer',
   navBtn:
     'h-8 w-[109px] flex items-center justify-center gap-2 rounded-sm transition-all font-normal',
   numBtn: 'h-8 w-8 flex items-center justify-center rounded-sm transition-all',
   disabled:
-    'opacity-50 cursor-not-allowed text-[#757575] hover:bg-transparent pointer-events-auto',
+    'opacity-50 cursor-not-allowed text-poke-muted hover:bg-transparent pointer-events-auto',
 }
 
 export function Pagination() {
@@ -47,7 +48,7 @@ export function Pagination() {
 
     wrapper.innerHTML = `
       <button data-action="prev" ${prevDisabled ? 'disabled' : ''} 
-        class="${paginationStyles.navBtn} ${prevDisabled ? paginationStyles.disabled : 'text-[#1E1E1E] hover:bg-gray-200 cursor-pointer'}">
+        class="${paginationStyles.navBtn} ${prevDisabled ? paginationStyles.disabled : 'text-poke-text-main hover:bg-poke-border cursor-pointer'}">
         <i class="fa-solid fa-arrow-left"></i> ${t('previous')}
       </button>
 
@@ -56,7 +57,7 @@ export function Pagination() {
       </div>
 
       <button data-action="next" ${nextDisabled ? 'disabled' : ''} 
-        class="${paginationStyles.navBtn} ${nextDisabled ? paginationStyles.disabled : 'text-[#1E1E1E] hover:bg-gray-200 cursor-pointer'}">
+        class="${paginationStyles.navBtn} ${nextDisabled ? paginationStyles.disabled : 'text-poke-text-main hover:bg-poke-border cursor-pointer'}">
         ${t('next')} <i class="fa-solid fa-arrow-right"></i>
       </button>
     `

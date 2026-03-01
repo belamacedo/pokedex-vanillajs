@@ -24,18 +24,18 @@ export function TypeFilter() {
     `
 
       const activeClasses = `
-      bg-[#263156] 
+      bg-poke-navy 
       text-white 
-      border-[#263156]
+      border-poke-navy
       shadow-md
       scale-105
     `
 
       const inactiveClasses = `
       bg-white 
-      text-[#263156] 
-      border-[#263156]
-      hover:bg-[#263156]
+      text-poke-navy 
+      border-poke-navy
+      hover:bg-poke-navy
       hover:text-white
       hover:shadow-md
       hover:-translate-y-0.5

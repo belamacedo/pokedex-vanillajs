@@ -99,7 +99,7 @@ export function createPokemonModal(pokemon) {
                   <span>${stat.name.replace('-', ' ')}</span>
                   <span>${stat.value}</span>
                 </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="w-full bg-poke-border rounded-full h-2">
                   <div 
                     class= "h-2 rounded-full transition-all duration-500"
                     style="width: ${Math.min(stat.value, 100)}%; background: ${mainStyle.strong};"

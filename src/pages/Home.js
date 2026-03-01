@@ -21,13 +21,13 @@ export function Home() {
          ${t('home_page.title')}
         </h1>
 
-        <p class="text-lg md:text-xl text-gray-200 max-w-[600px]">
+        <p class="text-lg md:text-xl text-poke-border max-w-[600px]">
           ${t('home_page.description')}
         </p>
 
         <button 
           id="go-pokedex"
-          class="mt-6 px-8 py-4 bg-yellow-400 text-[#263156] font-bold rounded-xl shadow-xl hover:scale-110 transition-transform duration-300"
+          class="mt-6 px-8 py-4 bg-yellow-400 text-poke-navy font-bold rounded-xl shadow-xl hover:scale-110 transition-transform duration-300"
         >
          ${t('home_page.button')}
         </button>

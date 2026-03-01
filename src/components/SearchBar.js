@@ -1,10 +1,10 @@
-import store from '@/store'
 import { t } from '@/services'
+import store from '@/store'
 
 export function SearchBar() {
   const wrapper = document.createElement('div')
   wrapper.className =
-    'w-full max-w-[720px] min-w-[360px] h-14 bg-[#F2F2F7] rounded-full flex items-center pl-10 pr-6'
+    'w-full max-w-[720px] min-w-[360px] h-14 bg-border rounded-full flex items-center pl-10 pr-6'
 
   wrapper.innerHTML = `
   <input 

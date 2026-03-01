@@ -1,1 +1,19 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-poke-navy: #263156;
+  --color-poke-dark: #2c2c2c;
+  --color-poke-muted: #757575;
+  --color-border: #f2f2f7;
+  --color-poke-border: #d9d9d9;
+  --color-poke-bg-main: #f5f5f5;
+  --color-poke-text-main: #1e1e1e;
+
+  --font-sans: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer utilities {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+}

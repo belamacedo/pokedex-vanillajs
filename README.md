@@ -14,7 +14,7 @@ Uma Pokédex moderna, rápida e responsiva construída puramente com **Vanilla J
 
 Para rodar este projeto, você precisa ter instalado:
 
-- **Node.js**: Versão **20.x** (LTS) ou superior.
+- **Node.js**: Versão **22.x** (LTS) ou superior.
 - **NPM**: Gerenciador de pacotes (instalado junto com o Node).
 
 ---

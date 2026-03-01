@@ -8,7 +8,7 @@ const routes = [
 export function NavBar() {
   const wrapper = document.createElement('header')
   wrapper.className =
-    'w-full bg-white border-b border-gray-200 flex justify-center'
+    'w-full bg-white border-b border-poke-border flex justify-center'
 
   wrapper.innerHTML = `
     <nav class="w-full h-24 max-w-[1300px] px-6 flex items-center justify-between">
