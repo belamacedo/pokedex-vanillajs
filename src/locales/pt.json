@@ -26,5 +26,19 @@
     "title": "Explore o Mundo Pokémon",
     "description": "Descubra, filtre e explore todos os Pokémon de forma simples e rápida.",
     "button": "Explorar Pokédex"
+  },
+  "pokemon": {
+    "height": "Altura",
+    "weight": "Peso",
+    "abilities": "Habilidades",
+    "base_stats": "Status Base"
+  },
+  "stats": {
+    "hp": "HP",
+    "attack": "Ataque",
+    "defense": "Defesa",
+    "special-attack": "Ataque Especial",
+    "special-defense": "Defesa Especial",
+    "speed": "Velocidade"
   }
 }

@@ -19,6 +19,10 @@ const store = {
     this.notify()
   },
 
+  getState() {
+    return this.state
+  },
+
   subscribe(listener) {
     this.listeners.push(listener)
     return () => (this.listeners = this.listeners.filter((l) => l !== listener))

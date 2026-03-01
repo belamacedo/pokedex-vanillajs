@@ -1,4 +1,12 @@
-import { SearchBar, TypeFilter, Pagination, PokemonCard } from '../components'
+import {
+  SearchBar,
+  TypeFilter,
+  Pagination,
+  PokemonCard,
+  createPokemonModal,
+} from '../components'
+import { pokemonService } from '../services'
+
 import store from '../store'
 
 export function Pokedex() {
@@ -19,15 +27,33 @@ export function Pokedex() {
     <div id="pagination-container" class="mt-10 mb-10"></div>
   `
 
-  container.querySelector('#search-container').appendChild(SearchBar())
+  const searchContainer = container.querySelector('#search-container')
+  const list = container.querySelector('#pokemon-list')
+  const paginationContainer = container.querySelector('#pagination-container')
 
-  container.querySelector('#search-container').appendChild(TypeFilter())
+  searchContainer.appendChild(SearchBar())
+  searchContainer.appendChild(TypeFilter())
+  paginationContainer.appendChild(Pagination())
 
-  container.querySelector('#pagination-container').appendChild(Pagination())
+  list.addEventListener('click', async (e) => {
+    const card = e.target.closest('.pokemon-card')
+    if (!card) return
+
+    const id = Number(card.dataset.id)
+
+    try {
+      // 🔄 busca detalhes completos
+      const fullPokemon = await pokemonService.fetchPokemonById(id)
+
+      if (fullPokemon) {
+        createPokemonModal(fullPokemon)
+      }
+    } catch (error) {
+      console.error('Erro ao carregar detalhes:', error)
+    }
+  })
 
   function render(state) {
-    const list = container.querySelector('#pokemon-list')
-
     if (state.loading) list.classList.add('opacity-50')
     else list.classList.remove('opacity-50')
 

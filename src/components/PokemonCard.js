@@ -52,7 +52,8 @@ export function PokemonCard(pokemon) {
 
   return `
     <div 
-      class="w-full px-4 pt-4 pb-14 rounded-2xl flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-md cursor-pointer"
+      data-id="${pokemon.id}"
+      class="pokemon-card w-full px-4 pt-4 pb-14 rounded-2xl flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-md cursor-pointer"
       style="background: ${mainStyle.base}"
     >
 

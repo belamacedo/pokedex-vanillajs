@@ -26,5 +26,11 @@
     "title": "Explore the Pokémon World",
     "description": "Discover, filter and explore your favorite Pokémon easily.",
     "button": "Explore Pokédex"
+  },
+  "pokemon": {
+    "height": "Height",
+    "weight": "Weight",
+    "abilities": "Abilities",
+    "base_stats": "Base Stats"
   }
 }

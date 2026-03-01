@@ -75,4 +75,69 @@ export const pokemonService = {
       return { pokemons: [], total: 0 }
     }
   },
+
+  async fetchPokemonById(id) {
+    const query = `
+    query getPokemonById($id: Int!) {
+      pokemon_v2_pokemon_by_pk(id: $id) {
+        id
+        name
+        height
+        weight
+
+        pokemon_v2_pokemontypes {
+          pokemon_v2_type { name }
+        }
+
+        pokemon_v2_pokemonabilities {
+          pokemon_v2_ability { name }
+        }
+
+        pokemon_v2_pokemonstats {
+          base_stat
+          pokemon_v2_stat { name }
+        }
+      }
+    }
+  `
+
+    try {
+      const response = await fetch(GQL_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query,
+          variables: { id },
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.errors) {
+        console.error(result.errors)
+        return null
+      }
+
+      const p = result.data.pokemon_v2_pokemon_by_pk
+
+      return {
+        id: p.id,
+        name: p.name,
+        height: p.height,
+        weight: p.weight,
+        types: p.pokemon_v2_pokemontypes.map((t) => t.pokemon_v2_type.name),
+        abilities: p.pokemon_v2_pokemonabilities.map(
+          (a) => a.pokemon_v2_ability.name
+        ),
+        stats: p.pokemon_v2_pokemonstats.map((s) => ({
+          name: s.pokemon_v2_stat.name,
+          value: s.base_stat,
+        })),
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`,
+      }
+    } catch (error) {
+      console.error(error)
+      return null
+    }
+  },
 }
