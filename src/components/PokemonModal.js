@@ -20,7 +20,7 @@ export function createPokemonModal(pokemon) {
   overlay.innerHTML = `
 <div class="bg-white w-[95%] max-w-[900px] rounded-2xl shadow-2xl transform scale-95 transition-all duration-300 overflow-hidden max-h-[90vh] flex flex-col">
 
-  <div class="relative p-6 flex flex-col sm:flex-row items-center gap-6" style="background: ${mainStyle.base}">
+  <div class="relative p-6 flex flex-col sm:flex-row items-center gap-6" style="background: ${mainStyle.light}">
     
     <button 
       class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl"
@@ -101,8 +101,9 @@ export function createPokemonModal(pokemon) {
                 </div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    class="bg-blue-500 h-2 rounded-full transition-all duration-500"
-                    style="width: ${Math.min(stat.value, 100)}%"
+                    class= "h-2 rounded-full transition-all duration-500"
+                    style="width: ${Math.min(stat.value, 100)}%; background: ${mainStyle.strong};"
+                    
                   ></div>
                 </div>
               </div>

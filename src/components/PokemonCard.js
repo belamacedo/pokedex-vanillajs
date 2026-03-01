@@ -1,24 +1,24 @@
 import { t } from '../services'
 
 export const typeStyles = {
-  grass: { base: '#F0F3FF', emoji: '🌿' },
-  fire: { base: '#FFF3F0', emoji: '🔥' },
-  water: { base: '#F0F7FF', emoji: '💧' },
-  electric: { base: '#FFFBEF', emoji: '⚡' },
-  psychic: { base: '#FFF0F6', emoji: '🔮' },
-  ice: { base: '#F0FFFF', emoji: '❄️' },
-  ground: { base: '#FFF6F0', emoji: '🌍' },
-  bug: { base: '#F7FFF0', emoji: '🐛' },
-  poison: { base: '#F8F0FF', emoji: '☠️' },
-  normal: { base: '#F5F5F5', emoji: '⚪' },
-  fairy: { base: '#FFF0FA', emoji: '✨' },
-  fighting: { base: '#FFF0F0', emoji: '🥊' },
-  rock: { base: '#F7F5F0', emoji: '🪨' },
-  ghost: { base: '#F4F0FF', emoji: '👻' },
-  dragon: { base: '#F0F3FF', emoji: '🐉' },
-  flying: { base: '#F0F7FF', emoji: '🕊️' }, // Adicionado
-  steel: { base: '#F2F2F2', emoji: '⚙️' }, // Adicionado
-  dark: { base: '#ECEBED', emoji: '🌙' }, // Adicionado
+  grass: { light: '#F0F3FF', strong: '#4CAF50', emoji: '🌿' },
+  fire: { light: '#FFF3F0', strong: '#F44336', emoji: '🔥' },
+  water: { light: '#F0F7FF', strong: '#2196F3', emoji: '💧' },
+  electric: { light: '#FFFBEF', strong: '#FFC107', emoji: '⚡' },
+  psychic: { light: '#FFF0F6', strong: '#E91E63', emoji: '🔮' },
+  ice: { light: '#F0FFFF', strong: '#00BCD4', emoji: '❄️' },
+  ground: { light: '#FFF6F0', strong: '#795548', emoji: '🌍' },
+  bug: { light: '#F7FFF0', strong: '#8BC34A', emoji: '🐛' },
+  poison: { light: '#F8F0FF', strong: '#9C27B0', emoji: '☠️' },
+  normal: { light: '#F5F5F5', strong: '#9E9E9E', emoji: '⚪' },
+  fairy: { light: '#FFF0FA', strong: '#FF80AB', emoji: '✨' },
+  fighting: { light: '#FFF0F0', strong: '#D32F2F', emoji: '🥊' },
+  rock: { light: '#F7F5F0', strong: '#A1887F', emoji: '🪨' },
+  ghost: { light: '#F4F0FF', strong: '#673AB7', emoji: '👻' },
+  dragon: { light: '#F0F3FF', strong: '#3F51B5', emoji: '🐉' },
+  flying: { light: '#F0F7FF', strong: '#64B5F6', emoji: '🕊️' },
+  steel: { light: '#F2F2F2', strong: '#607D8B', emoji: '⚙️' },
+  dark: { light: '#ECEBED', strong: '#424242', emoji: '🌙' },
 }
 
 export function PokemonCard(pokemon) {
@@ -57,7 +57,7 @@ export function PokemonCard(pokemon) {
     <div 
       data-id="${pokemon.id}"
       class="pokemon-card w-full px-4 pt-4 pb-14 rounded-2xl flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-md cursor-pointer"
-      style="background: ${mainStyle.base}"
+      style="background: ${mainStyle.light}"
     >
 
       <div class="flex justify-between items-start">
