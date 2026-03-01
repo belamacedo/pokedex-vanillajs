@@ -1,4 +1,4 @@
-import { t } from '../services'
+import { t } from '@/services'
 
 export function Home() {
   const container = document.createElement('div')

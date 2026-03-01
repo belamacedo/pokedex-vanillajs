@@ -1,5 +1,5 @@
 import { typeStyles } from './PokemonCard'
-import { t } from '../services'
+import { t } from '@/services'
 
 export function createPokemonModal(pokemon) {
   const overlay = document.createElement('div')

@@ -1,5 +1,5 @@
-import store from '../store'
-import { t } from '../services'
+import store from '@/store'
+import { t } from '@/services'
 
 const paginationStyles = {
   current: 'bg-[#2C2C2C] text-white cursor-default',

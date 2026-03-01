@@ -1,5 +1,5 @@
-import store from '../store'
-import { t } from '../services'
+import store from '@/store'
+import { t } from '@/services'
 
 export function SearchBar() {
   const wrapper = document.createElement('div')

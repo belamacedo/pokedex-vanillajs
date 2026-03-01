@@ -1,6 +1,6 @@
-import { NavBar } from './components'
-import { renderRoute } from './router'
-import './style.css'
+import { NavBar } from '@/components'
+import { renderRoute } from '@/router'
+import '@/style.css'
 
 export function App() {
   const root = document.querySelector('#app')

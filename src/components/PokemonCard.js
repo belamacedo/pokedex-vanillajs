@@ -1,4 +1,4 @@
-import { t } from '../services'
+import { t } from '@/services'
 
 export const typeStyles = {
   grass: { light: '#F0F3FF', strong: '#4CAF50', emoji: '🌿' },

@@ -1,4 +1,4 @@
-import { pokemonService, t } from '../services'
+import { pokemonService, t } from '@/services'
 
 const store = {
   state: {

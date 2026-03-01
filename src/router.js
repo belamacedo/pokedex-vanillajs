@@ -1,5 +1,5 @@
-import { Home } from './pages/Home'
-import { Pokedex } from './pages/Pokedex'
+import { Home } from '@/pages/Home'
+import { Pokedex } from '@/pages/Pokedex'
 
 const routes = {
   home: Home,

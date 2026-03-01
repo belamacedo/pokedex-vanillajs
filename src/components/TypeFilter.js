@@ -1,6 +1,6 @@
-import { t } from '../services'
-import store from '../store'
-import { PokemonTypes } from '../types'
+import { t } from '@/services'
+import store from '@/store'
+import { PokemonTypes } from '@/types'
 
 export function TypeFilter() {
   const wrapper = document.createElement('div')

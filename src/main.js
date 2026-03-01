@@ -1,5 +1,5 @@
-import { App } from './App'
-import { loadLocale } from './services'
+import { App } from '@/App'
+import { loadLocale } from '@/services'
 
 const browserLang = navigator.language.slice(0, 2)
 await loadLocale(browserLang)

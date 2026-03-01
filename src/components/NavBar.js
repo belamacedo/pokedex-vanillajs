@@ -1,4 +1,4 @@
-import { t } from '../services'
+import { t } from '@/services'
 
 const routes = [
   { key: 'home', path: '#/home', label: () => t('home') },

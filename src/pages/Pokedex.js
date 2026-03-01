@@ -4,10 +4,10 @@ import {
   Pagination,
   PokemonCard,
   createPokemonModal,
-} from '../components'
-import { pokemonService } from '../services'
+} from '@/components'
+import { pokemonService } from '@/services'
 
-import store from '../store'
+import store from '@/store'
 
 export function Pokedex() {
   const container = document.createElement('div')
@@ -42,7 +42,6 @@ export function Pokedex() {
     const id = Number(card.dataset.id)
 
     try {
-      // 🔄 busca detalhes completos
       const fullPokemon = await pokemonService.fetchPokemonById(id)
 
       if (fullPokemon) {
