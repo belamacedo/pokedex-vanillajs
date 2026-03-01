@@ -1,10 +1,11 @@
 import store from '../store'
+import { t } from '../services'
 
 const paginationStyles = {
   current: 'bg-[#2C2C2C] text-white cursor-default',
   default: 'bg-transparent text-[#1E1E1E] hover:bg-gray-200 cursor-pointer',
   navBtn:
-    'h-8 w-[109px] flex items-center justify-center gap-2 rounded-sm transition-all font-medium',
+    'h-8 w-[109px] flex items-center justify-center gap-2 rounded-sm transition-all font-normal',
   numBtn: 'h-8 w-8 flex items-center justify-center rounded-sm transition-all',
   disabled:
     'opacity-50 cursor-not-allowed text-[#757575] hover:bg-transparent pointer-events-auto',
@@ -47,7 +48,7 @@ export function Pagination() {
     wrapper.innerHTML = `
       <button data-action="prev" ${prevDisabled ? 'disabled' : ''} 
         class="${paginationStyles.navBtn} ${prevDisabled ? paginationStyles.disabled : 'text-[#1E1E1E] hover:bg-gray-200 cursor-pointer'}">
-        <i class="fas fa-arrow-left text-[10px]"></i> Anterior
+        <i class="fa-solid fa-arrow-left"></i> ${t('previous')}
       </button>
 
       <div class="flex items-center gap-2">
@@ -56,7 +57,7 @@ export function Pagination() {
 
       <button data-action="next" ${nextDisabled ? 'disabled' : ''} 
         class="${paginationStyles.navBtn} ${nextDisabled ? paginationStyles.disabled : 'text-[#1E1E1E] hover:bg-gray-200 cursor-pointer'}">
-        Próximo <i class="fas fa-arrow-right text-[10px]"></i>
+        ${t('next')} <i class="fa-solid fa-arrow-right"></i>
       </button>
     `
   }

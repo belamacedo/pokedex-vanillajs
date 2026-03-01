@@ -1,4 +1,4 @@
-import store from '../store'
+import { t } from '../services'
 
 export function NavBar() {
   const wrapper = document.createElement('header')
@@ -25,11 +25,11 @@ export function NavBar() {
 
         <div class="flex gap-3">
           <button data-tab="home" class="${navStyles.base} ${activeTab === 'home' ? navStyles.active : navStyles.inactive}">
-            Home
+            ${t('home')}
           </button>
 
           <button data-tab="pokedex" class="${navStyles.base} ${activeTab === 'pokedex' ? navStyles.active : navStyles.inactive}">
-            Pokédex
+            ${t('pokedex')}
           </button>
         </div>
       </nav>
@@ -41,11 +41,7 @@ export function NavBar() {
     if (!target) return
 
     activeTab = target.dataset.tab
-
-    if (activeTab === 'home') {
-      store.dispatchSearch('')
-    }
-
+    if (activeTab === 'home') store.dispatchSearch('')
     render()
   }
 

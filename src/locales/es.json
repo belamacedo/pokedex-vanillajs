@@ -1,0 +1,25 @@
+{
+  "home": "Inicio",
+  "pokedex": "Pokédex",
+  "search_placeholder": "Busca por nombre de Pokémon",
+  "loading_error": "Error al buscar Pokémon",
+  "previous": "Anterior",
+  "next": "Siguiente",
+  "types": {
+    "grass": "Hierba",
+    "fire": "Fuego",
+    "water": "Agua",
+    "electric": "Eléctrico",
+    "psychic": "Psíquico",
+    "ice": "Hielo",
+    "ground": "Tierra",
+    "bug": "Bicho",
+    "poison": "Veneno",
+    "normal": "Normal",
+    "fairy": "Hada",
+    "fighting": "Luchador",
+    "rock": "Roca",
+    "ghost": "Fantasma",
+    "dragon": "Dragón"
+  }
+}

@@ -1,4 +1,4 @@
-import { pokemonService } from '../api'
+import { pokemonService, t } from '../services'
 
 const store = {
   state: {
@@ -8,7 +8,7 @@ const store = {
     total: 0,
     loading: false,
     error: null,
-    search: '',
+    searchTerm: '',
   },
 
   listeners: [],
@@ -27,9 +27,9 @@ const store = {
     this.listeners.forEach((listener) => listener(this.state))
   },
 
-  async dispatchSearch(term) {
-    this.setState({ searchTerm: term, currentPage: 1, loading: true })
-    this.dispatchChangePage(1) // Reinicia na página 1 com o novo termo
+  async dispatchSearch(search) {
+    this.setState({ searchTerm: search, currentPage: 1, loading: true })
+    this.dispatchChangePage(1)
   },
 
   async dispatchChangePage(page) {
@@ -38,7 +38,6 @@ const store = {
     const offset = (page - 1) * limit
 
     try {
-      // Passamos o searchTerm para o service
       const { pokemons, total } = await pokemonService.fetchPokemons(
         limit,
         offset,
@@ -46,7 +45,7 @@ const store = {
       )
       this.setState({ pokemons, total, currentPage: page, loading: false })
     } catch (error) {
-      this.setState({ error: 'Erro ao buscar', loading: false })
+      this.setState({ error: t('loading_error'), loading: false })
     }
   },
 }

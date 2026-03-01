@@ -1,3 +1,5 @@
+import { t } from '../services'
+
 const typeStyles = {
   grass: { background: '#F0F3FF', text: '#11B047' },
   fire: { background: '#FFF3F0', text: '#E95C4B' },
@@ -18,6 +20,7 @@ const typeStyles = {
 
 export function PokemonCard(pokemon) {
   const mainType = pokemon.types[0]
+  const translated = t(`types.${mainType}`)
 
   const style = typeStyles[mainType] || {
     background: '#F5F5F5',
@@ -32,10 +35,9 @@ export function PokemonCard(pokemon) {
       
       <div class="flex justify-between items-center text-xs font-medium">
         <span 
-          class="capitalize" 
           style="color: ${style.text}"
         >
-          ${mainType}
+          ${translated}
         </span>
 
         <span class="text-[#263156] font-bold">

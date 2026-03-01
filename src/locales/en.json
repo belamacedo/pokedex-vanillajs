@@ -1,0 +1,25 @@
+{
+  "home": "Home",
+  "pokedex": "Pokédex",
+  "search_placeholder": "Search Pokémon by name",
+  "loading_error": "Error fetching Pokémon",
+  "previous": "Previous",
+  "next": "Next",
+  "types": {
+    "grass": "Grass",
+    "fire": "Fire",
+    "water": "Water",
+    "electric": "Electric",
+    "psychic": "Psychic",
+    "ice": "Ice",
+    "ground": "Ground",
+    "bug": "Bug",
+    "poison": "Poison",
+    "normal": "Normal",
+    "fairy": "Fairy",
+    "fighting": "Fighting",
+    "rock": "Rock",
+    "ghost": "Ghost",
+    "dragon": "Dragon"
+  }
+}
